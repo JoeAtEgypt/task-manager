@@ -28,3 +28,7 @@ def mark_task_undone(request, pk):
     task.is_completed = False
     task.save()
     return redirect("home")
+
+
+def edit_task(request, pk):
+    return render(request, "edit-task.html")

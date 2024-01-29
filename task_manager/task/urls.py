@@ -7,4 +7,5 @@ urlpatterns = [
     path("mark-task-done/<int:pk>", views.mark_task_done, name="mark-task-done"),
     path("mark-task-undone/<int:pk>", views.mark_task_undone, name="mark-task-undone"),
     path("remove/<int:pk>", views.remove_task, name="remove-task"),
+    path("edit/<int:pk>", views.edit_task, name="edit-task"),
 ]

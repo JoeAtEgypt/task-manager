@@ -9,8 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- Option 1: Include in HTML -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <!-- Font Awesome Icons -->
@@ -37,7 +36,7 @@
                         <span style="position: relative; float: right;">
                             <a class="btn btn-success" href="{% url 'mark-task-done' task.id %}"><i class="fa fa-check"></i> Mark as Done</a>
                             <a class="btn btn-danger" href="{% url 'remove-task' task.id %}"><i class="fa fa-trash"></i></a>
-                            <a class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-primary" href="{% url 'edit-task' task.id %}"><i class="fa fa-pencil"></i></a>
                         </span>
                     </div>
                 </div>
@@ -64,7 +63,7 @@
                 <form action="{% url 'add-task' %}" method="POST">{% csrf_token %}
                     <div class="form-group">
                         <span style="display: flex;">
-                            <input id="task-input" name="task_name" type="text" class="form-control" placeholder="Add a task" onkeyup="success()">
+                            <input id="task-input" name="task_name" type="text" class="form-control" placeholder="Add a task" onkeyup="success('task-input')">
                             <button type="submit" id="button" class="btn btn-primary" style="width: 200px;" disabled><i class="fa fa-plus"></i> Add</button>
                         </span>
                     </div>
@@ -72,15 +71,7 @@
             </div>
         </div>
     </div>
-  <script type="text/javascript">
-      function success() {
-          if(document.getElementById("task-input").value==="") {
-              document.getElementById('button').disabled = true;
-          } else {
-              document.getElementById('button').disabled = false;
-          }
-      }
-  </script>
+  <script type="text/javascript" src="/logic.js"></script>
 </body>
 </html>
 
