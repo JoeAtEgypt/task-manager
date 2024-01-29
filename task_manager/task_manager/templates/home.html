@@ -63,7 +63,7 @@
                 <form action="{% url 'add-task' %}" method="POST">{% csrf_token %}
                     <div class="form-group">
                         <span style="display: flex;">
-                            <input id="task-input" name="task_name" type="text" class="form-control" placeholder="Add a task" onkeyup="success('task-input')">
+                            <input id="task-input" name="task_name" type="text" class="form-control" placeholder="Add a task" onkeyup="success()">
                             <button type="submit" id="button" class="btn btn-primary" style="width: 200px;" disabled><i class="fa fa-plus"></i> Add</button>
                         </span>
                     </div>
@@ -71,7 +71,15 @@
             </div>
         </div>
     </div>
-  <script type="text/javascript" src="/logic.js"></script>
+  <script type="text/javascript">
+      function success() {
+          if(document.getElementById("task-input").value==="") {
+              document.getElementById('button').disabled = true;
+          } else {
+              document.getElementById('button').disabled = false;
+          }
+      }
+  </script>
 </body>
 </html>
 
